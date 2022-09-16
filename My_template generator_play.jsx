@@ -1,4 +1,4 @@
-// 놀이법 템플릿
+// 놀이법 카드뉴스 템플릿 만들기
 
 // 문서 단위를 픽셀로 지정
 var originalUnit = preferences.rulerUnits;
