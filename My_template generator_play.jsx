@@ -1,48 +1,48 @@
-// ³îÀÌ¹ı ÅÛÇÃ¸´
+// ë†€ì´ë²• í…œí”Œë¦¿
 
-// ¹®¼­ ´ÜÀ§¸¦ ÇÈ¼¿·Î ÁöÁ¤
+// ë¬¸ì„œ ë‹¨ìœ„ë¥¼ í”½ì…€ë¡œ ì§€ì •
 var originalUnit = preferences.rulerUnits;
 preferences.rulerUnits = Units.PIXELS;
 
-// ¹®¼­ ¸¸µé±â
-var docRef = documents.add(960, 960, 72, '³îÀÌ¹ı');
+// ë¬¸ì„œ ë§Œë“¤ê¸°
+var docRef = documents.add(960, 960, 72, 'ë†€ì´ë²•');
 var doc = activeDocument;
 
-// ¿øÇÏ´Â È½¼ö¸¸Å­ ·¹ÀÌ¾î ±×·ì ¸¸µé±â
+// ì›í•˜ëŠ” íšŸìˆ˜ë§Œí¼ ë ˆì´ì–´ ê·¸ë£¹ ë§Œë“¤ê¸°
 makeLayers(10);
 
-// ¹é±×¶ó¿îµå ·¹ÀÌ¾î Àá±İ ÇØÁ¦ ÈÄ »èÁ¦
+// ë°±ê·¸ë¼ìš´ë“œ ë ˆì´ì–´ ì ê¸ˆ í•´ì œ í›„ ì‚­ì œ
 doc.activeLayer.isBackgroundLayer = false;
 doc.artLayers[0].remove()
 
 function makeLayers(count) {
     
-    // Á¤ÇØÁø È½¼ö¸¸Å­ ·¹ÀÌ¾î ±×·ì »ı¼º
+    // ì •í•´ì§„ íšŸìˆ˜ë§Œí¼ ë ˆì´ì–´ ê·¸ë£¹ ìƒì„±
     for (i = 1; i <= count; i++) {
 
-        // ºó ±×·ì »ı¼º
+        // ë¹ˆ ê·¸ë£¹ ìƒì„±
         var newLayerSetRef = doc.layerSets.add();
         newLayerSetRef.name = i;
 
-        // ¹é±×¶ó¿îµå ·¹ÀÌ¾î »ı¼º ÈÄ Èò»öÀ¸·Î Ã¤¿ì°í Àá±İ
+        // ë°±ê·¸ë¼ìš´ë“œ ë ˆì´ì–´ ìƒì„± í›„ í°ìƒ‰ìœ¼ë¡œ ì±„ìš°ê³  ì ê¸ˆ
         var backLayer = doc.artLayers.add();
         backLayer.name = 'background';
 
         var backgroundColor = new SolidColor;
         backgroundColor.rgb.red = 255;
-        backgroundColor.rgb.red = 255;
-        backgroundColor.rgb.red = 255;        
+        backgroundColor.rgb.blue = 255;
+        backgroundColor.rgb.green = 255;        
         doc.selection.selectAll;
         doc.selection.fill(backgroundColor);
 
         backLayer.allLocked = true;
 
-        // ½ºÄÉÄ¡ ·¹ÀÌ¾î »ı¼º ÈÄ ¿ÀÆÛ½ÃÆ¼ ³·Ãã
+        // ìŠ¤ì¼€ì¹˜ ë ˆì´ì–´ ìƒì„± í›„ ì˜¤í¼ì‹œí‹° ë‚®ì¶¤
         var sketchLayer = activeDocument.artLayers.add();
         sketchLayer.name = 'sketch';
         sketchLayer.opacity = 25;
 
-        // ·¹ÀÌ¾î µÎ °³¸¦ ±×·ìÀ¸·Î ÀÌµ¿
+        // ë ˆì´ì–´ ë‘ ê°œë¥¼ ê·¸ë£¹ìœ¼ë¡œ ì´ë™
         backLayer.move(newLayerSetRef, ElementPlacement.INSIDE);
         sketchLayer.move(newLayerSetRef, ElementPlacement.INSIDE);
     }    
