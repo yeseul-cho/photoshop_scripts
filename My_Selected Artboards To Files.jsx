@@ -1,12 +1,12 @@
-// ¸ğµç ¾ÆÆ®º¸µå¸¦ jpeg ÆÄÀÏ·Î ÀúÀå
+// ì„ íƒí•œ ì•„íŠ¸ë³´ë“œë¥¼ jpeg íŒŒì¼ë¡œ ì €ì¥
 
 var doc = activeDocument;
 artboardsToJPEG()
-customAlert('ÀúÀåÀ» ¿Ï·áÇß½À´Ï´Ù', 0.3, 'Notice')
+customAlert('ì €ì¥ì„ ì™„ë£Œí–ˆìŠµë‹ˆë‹¤', 0.3, 'Notice')
 
-// ¸ŞÀÎ
+// ë©”ì¸
 function artboardsToJPEG() {
-    // ¼±ÅÃÇÑ ¾ÆÆ®º¸µå¸¸ Àá±×±â
+    // ì„ íƒí•œ ì•„íŠ¸ë³´ë“œë§Œ ì ê·¸ê¸°
     var selectedSet = doc.activeLayer;
     selectedSet.allLocked = true;
 
@@ -24,12 +24,12 @@ function artboardsToJPEG() {
             altClick(i)
         }
     }
-    // ¼±ÅÃÇÑ ¾ÆÆ®º¸µå Àá±İ ÇØÁ¦
+    // ì„ íƒí•œ ì•„íŠ¸ë³´ë“œ ì ê¸ˆ í•´ì œ
     selectedSet.allLocked = false;
 
 }
 
-// ·¹ÀÌ¾î alt + click (Å¬¸¯ÇÑ ·¹ÀÌ¾î¸¸ ÄÑÁü/²¨Áü)
+// ë ˆì´ì–´ alt + click (í´ë¦­í•œ ë ˆì´ì–´ë§Œ ì¼œì§/êº¼ì§)
 function altClick(num) {
     var idShw = charIDToTypeID("Shw ");
     var desc = new ActionDescriptor();
@@ -45,7 +45,7 @@ function altClick(num) {
     executeAction(idShw, desc, DialogModes.NO);
 }
 
-// ÀúÀåÇÏ±â
+// ì €ì¥í•˜ê¸°
 function saveIt(name) {
     var options = new ExportOptionsSaveForWeb();
     options.format = SaveDocumentType.JPEG;
@@ -53,7 +53,7 @@ function saveIt(name) {
     doc.exportDocument(new File(decodeURI(doc.fullName.parent) + '/' + name + '.jpg'), ExportType.SAVEFORWEB, options)
 }
 
-// alert Ã¢ ¶ç¿ì°í ÁöÁ¤ÇÑ ½Ã°£ ÈÄ ÀÚµ¿À¸·Î ´İÀ½ 
+// alert ì°½ ë„ìš°ê³  ì§€ì •í•œ ì‹œê°„ í›„ ìë™ìœ¼ë¡œ ë‹«ìŒ 
 function customAlert(message, delaySeconds, title) {
     var alertWindow = new Window('palette', title);
     var control_text = alertWindow.add('edittext', [0, 0, 500, 200], message, { multiline: true });
